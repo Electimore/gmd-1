@@ -2,15 +2,13 @@
     "posts":[
         {
             "filename": "roll-a-ball.md",
-            "title": "Roll a Ball project"
+            "title": "1. Roll a Ball project",
+            "last_update": "2026-03-03T21:15:00.000Z"
         },
         {
-            "filename": "roll-a-ball2.md",
-            "title": "Roll a Ball project 2"
-        },
-        {
-            "filename": "roll-a-ball3.md",
-            "title": "Roll a Ball project 3"
+            "filename": "gdd.md",
+            "title": "2. Game Design Document",
+            "last_update": "2026-03-03T23:00:00.000Z"
         }
     ]
 }
