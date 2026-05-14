@@ -12,11 +12,6 @@ public class FirstPersonPlayer : MonoBehaviour
     Vector3 movementDirection;
     Rigidbody rb;
 
-    public void Awake()
-    {
-        Debug.Log(SystemInfo.graphicsDeviceName);
-    }
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
