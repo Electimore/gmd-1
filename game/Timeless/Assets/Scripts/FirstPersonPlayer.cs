@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,11 @@ public class FirstPersonPlayer : MonoBehaviour
     public Transform cameraTransform;
     Vector3 movementDirection;
     Rigidbody rb;
+
+    public void Awake()
+    {
+        Debug.Log(SystemInfo.graphicsDeviceName);
+    }
 
     void Start()
     {
@@ -27,6 +33,7 @@ public class FirstPersonPlayer : MonoBehaviour
     public void OnMouseY(InputAction.CallbackContext context){
         float deltaY = context.ReadValue<float>() * ySensitivity;
         Vector3 newRotation = cameraTransform.rotation.eulerAngles + new Vector3(deltaY, 0f, 0f);
+        newRotation.x = (Math.Clamp((newRotation.x + 180)%360, -88 + 180, 60 + 180) - 180)%360;
         cameraTransform.rotation = Quaternion.Euler(newRotation);
     }
 
