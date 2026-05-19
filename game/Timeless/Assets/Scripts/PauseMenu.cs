@@ -6,24 +6,24 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
+    public PlayerInput playerInput;
 
-    private void Start()
+    void Start()
     {
+        GameIsPaused = false;
+        Time.timeScale = 1f;
         PauseMenuUI.SetActive(false);
+        playerInput.SwitchCurrentActionMap("WalkingOnLand");
     }
 
-    void Update()
+    public void OnPause(InputAction.CallbackContext context)
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (context.performed)
         {
             if (GameIsPaused)
-            {
                 Resume();
-            }
             else
-            {
                 Pause();
-            }
         }
     }
 
@@ -31,16 +31,18 @@ public class PauseMenu : MonoBehaviour
     {
         PauseMenuUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; //here the time stuff
         GameIsPaused = false;
+        playerInput.SwitchCurrentActionMap("WalkingOnLand");
     }
 
-    void Pause()
+    public void Pause()
     {
         PauseMenuUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; //here the time stuff
         GameIsPaused = true;
+        playerInput.SwitchCurrentActionMap("UI");
     }
 
     public void LoadMenu()
