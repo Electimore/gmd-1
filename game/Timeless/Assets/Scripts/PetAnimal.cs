@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 
 public class PetAnimal : MonoBehaviour
 {
     private Animator animator;
     private bool isPlayerClose = false;
+    private bool isPetting = false;
     public InputAction interactAction;
 
     void Start()
@@ -25,7 +27,7 @@ public class PetAnimal : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerClose && interactAction.triggered)
+        if (isPlayerClose && !isPetting && interactAction.triggered)
         {
             Pet();
         }
@@ -33,11 +35,11 @@ public class PetAnimal : MonoBehaviour
 
     private void Pet()
     {
-        Debug.Log("You pet the animal!");
+        Debug.Log("You pet the cat!");
 
         if (animator != null)
         {
-            animator.Play("Jump");
+            animator.SetTrigger("PetTrigger");
         }
     }
 
@@ -46,7 +48,7 @@ public class PetAnimal : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerClose = true;
-            Debug.Log("Player in range of animal.");
+            Debug.Log("Player in range of cat.");
         }
     }
 
@@ -55,7 +57,7 @@ public class PetAnimal : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerClose = false;
-            Debug.Log("Player no longer in range of animal.");
+            Debug.Log("Player no longer in range of cat.");
         }
     }
 }
