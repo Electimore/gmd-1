@@ -88,6 +88,7 @@ public class PetAnimal : MonoBehaviour
         isFollowingPlayer = false;
         agent.ResetPath(); 
 
+        animator.SetBool("IsHappy", true);
         Debug.Log("You pet the animal!");
         animator.SetTrigger("PetTrigger");
         
@@ -106,6 +107,7 @@ public class PetAnimal : MonoBehaviour
         
         Debug.Log("Cat no longer follows you");
         isFollowingPlayer = false;
+        animator.SetBool("IsHappy", false);
         SetNewWanderDestination();
     }
 
