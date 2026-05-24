@@ -708,6 +708,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c22d751e-0e88-4377-8ab0-d15c0ebb672d
     m_ActionName: 'WalkingOnLand/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 510853114}
+        m_TargetAssemblyTypeName: FirstPersonPlayer, Assembly-CSharp
+        m_MethodName: OnStickLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 024cf4db-2500-4824-bb41-581612a69faa
+    m_ActionName: WalkingOnLand/StickLook
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: WalkingOnLand
@@ -729,6 +745,7 @@ MonoBehaviour:
   ySensitivity: -0.1
   speed: 20
   jumpForce: 5
+  stickRotationSpeed: 800
   cameraTransform: {fileID: 330585546}
 --- !u!54 &510853115
 Rigidbody:
