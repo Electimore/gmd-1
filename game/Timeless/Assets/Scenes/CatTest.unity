@@ -1050,6 +1050,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Interact
       m_Flags: 0
+    - m_Name: 
+      m_Id: 08e7499e-1f6e-48d3-b68a-da022ae6e8a5
+      m_Path: <Gamepad>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
     m_Flags: 0
   wanderRadius: 10
   wanderWaitTime: 3
