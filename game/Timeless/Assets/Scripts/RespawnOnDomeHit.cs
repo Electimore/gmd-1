@@ -5,8 +5,7 @@ public class RespawnOnDomeHit : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        Debug.LogError("DIE");
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             GameObject.Find("TimeManager").GetComponent<TimeController>().EndTimeEarly();
         }

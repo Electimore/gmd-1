@@ -3,13 +3,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.AI;
 using System.Collections;
 
-public class PetAnimal : MonoBehaviour
+public class PetAnimal : MonoBehaviour, IInteractable
 {
     private Animator animator;
     private NavMeshAgent agent;
     private Transform player;
-
-    public InputAction interactAction;
 
     public float wanderRadius;
     public float wanderWaitTime;
@@ -34,18 +32,21 @@ public class PetAnimal : MonoBehaviour
         SetNewWanderDestination();
     }
 
-    private void OnEnable() { interactAction.Enable(); }
-    private void OnDisable() { interactAction.Disable(); }
+    public bool Interact()
+    {
+        StartCoroutine(PetRoutine());
+        return false;    
+    }
+
+    public void Dismiss()
+    {
+        return;
+    }
 
     void Update()
     {
         bool isWalking = agent.velocity.magnitude > 0.1f;
         animator.SetBool("IsWalking", isWalking);
-
-        if (isPlayerClose && !isBeingPetted && interactAction.triggered)
-        {
-            StartCoroutine(PetRoutine());
-        }
 
         if (isBeingPetted) 
         {
