@@ -14,29 +14,37 @@ public class FirstPersonPlayer : MonoBehaviour
     Vector2 stickLookDircetion;
     Rigidbody rb;
 
+    float mouseXInput;
+    float mouseYInput;
+
+    float xRotation = 0f;
+    float yRotation = 0f;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        rb=GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         isGrounded = true;
+
+        yRotation = transform.localEulerAngles.y;
+        
+        float camX = cameraTransform.localEulerAngles.x;
+        if (camX > 180f) camX -= 360f;
+        xRotation = camX;
     }
 
-    //mouse look
     public void OnMouseX(InputAction.CallbackContext context)
     {
-        float deltaX = context.ReadValue<float>() * xSensitivity;
-        transform.Rotate(0f, deltaX, 0f);
+        mouseXInput += context.ReadValue<float>();
     }
 
-    public void OnMouseY(InputAction.CallbackContext context){
-        float deltaY = context.ReadValue<float>() * ySensitivity;
-        Vector3 newRotation = cameraTransform.rotation.eulerAngles + new Vector3(deltaY, 0f, 0f);
-        newRotation.x = (Math.Clamp((newRotation.x + 180)%360, -88 + 180, 60 + 180) - 180)%360;
-        cameraTransform.rotation = Quaternion.Euler(newRotation);
+    public void OnMouseY(InputAction.CallbackContext context)
+    {
+        mouseYInput += context.ReadValue<float>();
     }
 
-    //controller look
-    public void OnStickLook(InputAction.CallbackContext context) {
+    public void OnStickLook(InputAction.CallbackContext context) 
+    {
         stickLookDircetion = context.ReadValue<Vector2>();
     }
 
@@ -68,16 +76,37 @@ public class FirstPersonPlayer : MonoBehaviour
         Vector3 targetVelocity = transform.TransformDirection(movementDirection) * speed;
         targetVelocity.y = rb.linearVelocity.y;
         rb.linearVelocity = targetVelocity;
+    }
 
-        if (stickLookDircetion != Vector2.zero) {
-            // multiplied by Time.deltaTime for smooth rotation and stickRotationSpeed for some speed
-            float deltaX = stickLookDircetion.x * xSensitivity * Time.deltaTime * stickRotationSpeed;
-            transform.Rotate(0f, deltaX, 0f);
+    void LateUpdate()
+    {
+        float totalDeltaX = 0f;
+        float totalDeltaY = 0f;
 
-            float deltaY = stickLookDircetion.y * ySensitivity * Time.deltaTime * stickRotationSpeed;
-            Vector3 newRotation = cameraTransform.rotation.eulerAngles + new Vector3(deltaY, 0f, 0f);
-            newRotation.x = (Math.Clamp((newRotation.x + 180) % 360, -88 + 180, 60 + 180) - 180) % 360;
-            cameraTransform.rotation = Quaternion.Euler(newRotation);
+        if (mouseXInput != 0f || mouseYInput != 0f)
+        {
+            totalDeltaX += mouseXInput * xSensitivity;
+            totalDeltaY += mouseYInput * ySensitivity;
         }
+
+        if (stickLookDircetion != Vector2.zero) 
+        {
+            totalDeltaX += stickLookDircetion.x * xSensitivity * Time.deltaTime * stickRotationSpeed;
+            totalDeltaY += stickLookDircetion.y * ySensitivity * Time.deltaTime * stickRotationSpeed;
+        }
+
+        if (totalDeltaX != 0f || totalDeltaY != 0f)
+        {
+            yRotation += totalDeltaX;
+            xRotation += totalDeltaY; 
+
+            xRotation = Mathf.Clamp(xRotation, -88f, 60f);
+
+            transform.localRotation = Quaternion.Euler(0f, yRotation, 0f);
+            cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        }
+
+        mouseXInput = 0f;
+        mouseYInput = 0f;
     }
 }
