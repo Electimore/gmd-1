@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
     public PlayerInput playerInput;
+    public GameObject firstSelectedButton;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f; //here the time stuff
         GameIsPaused = false;
         playerInput.SwitchCurrentActionMap("WalkingOnLand");
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void Pause()
@@ -43,11 +46,12 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; //here the time stuff
         GameIsPaused = true;
         playerInput.SwitchCurrentActionMap("UI");
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSelectedButton);
     }
 
     public void LoadMenu()
     {
-        Debug.Log("Loading main menu...");
         GameIsPaused = false;
         SceneManager.LoadScene(0);
     }
