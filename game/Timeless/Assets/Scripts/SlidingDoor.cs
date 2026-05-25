@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SlidingGate : MonoBehaviour
+public class SlidingDoor : MonoBehaviour
 {
     public Transform player;
     public float triggerDistance;
@@ -20,7 +20,7 @@ public class SlidingGate : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
+        float distance = Vector3.Distance(closedPosition, player.position);
 
         isOpen = distance <= triggerDistance;
 
