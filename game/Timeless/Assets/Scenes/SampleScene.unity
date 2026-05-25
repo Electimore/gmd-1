@@ -817,9 +817,9 @@ MonoBehaviour:
     m_ActionName: 'WalkingOnLand/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1975890003}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: OnPause
+      - m_Target: {fileID: 510853114}
+        m_TargetAssemblyTypeName: FirstPersonPlayer, Assembly-CSharp
+        m_MethodName: OnStickLook
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -829,24 +829,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7f43d0e9-de47-497e-bbf4-1004134b9a80
-    m_ActionName: 'WalkingOnLand/Pause[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1975890003}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 1dd674bd-fae2-4668-881c-3cfe9658713b
-    m_ActionName: 'UI/Resume[/Keyboard/escape]'
+    m_ActionId: 024cf4db-2500-4824-bb41-581612a69faa
+    m_ActionName: WalkingOnLand/StickLook
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: WalkingOnLand
@@ -868,6 +852,7 @@ MonoBehaviour:
   ySensitivity: -0.1
   speed: 20
   jumpForce: 5
+  stickRotationSpeed: 800
   cameraTransform: {fileID: 330585546}
 --- !u!54 &510853115
 Rigidbody:
