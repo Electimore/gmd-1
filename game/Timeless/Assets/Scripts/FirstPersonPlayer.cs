@@ -7,9 +7,11 @@ public class FirstPersonPlayer : MonoBehaviour
     public float xSensitivity, ySensitivity;
     public float speed;
     public float jumpForce;
+    public float stickRotationSpeed;
     bool isGrounded;
     public Transform cameraTransform;
     Vector3 movementDirection;
+    Vector2 stickLookDircetion;
     Rigidbody rb;
 
     void Start()
@@ -19,6 +21,7 @@ public class FirstPersonPlayer : MonoBehaviour
         isGrounded = true;
     }
 
+    //mouse look
     public void OnMouseX(InputAction.CallbackContext context)
     {
         float deltaX = context.ReadValue<float>() * xSensitivity;
@@ -30,6 +33,11 @@ public class FirstPersonPlayer : MonoBehaviour
         Vector3 newRotation = cameraTransform.rotation.eulerAngles + new Vector3(deltaY, 0f, 0f);
         newRotation.x = (Math.Clamp((newRotation.x + 180)%360, -88 + 180, 60 + 180) - 180)%360;
         cameraTransform.rotation = Quaternion.Euler(newRotation);
+    }
+
+    //controller look
+    public void OnStickLook(InputAction.CallbackContext context) {
+        stickLookDircetion = context.ReadValue<Vector2>();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -55,8 +63,10 @@ public class FirstPersonPlayer : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        rb.MovePosition(transform.position + transform.TransformDirection(movementDirection) * speed * Time.deltaTime);
+        Vector3 targetVelocity = transform.TransformDirection(movementDirection) * speed;
+        targetVelocity.y = rb.linearVelocity.y;
+        rb.linearVelocity = targetVelocity;
     }
 }
