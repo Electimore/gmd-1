@@ -55,8 +55,10 @@ public class FirstPersonPlayer : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        rb.MovePosition(transform.position + transform.TransformDirection(movementDirection) * speed * Time.deltaTime);
+        Vector3 targetVelocity = transform.TransformDirection(movementDirection) * speed;
+        targetVelocity.y = rb.linearVelocity.y;
+        rb.linearVelocity = targetVelocity;
     }
 }
