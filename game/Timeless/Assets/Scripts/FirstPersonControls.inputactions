@@ -55,7 +55,7 @@
                     "name": "StickLook",
                     "type": "Value",
                     "id": "36134fc9-182c-4fb3-a970-5c0918462d5a",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
