@@ -132740,6 +132740,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1685768345014610022, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1942789546}
+    - target: {fileID: 1685768345014610022, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 2125949391294032858, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -132796,6 +132804,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3155019754413520665, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1942789546}
+    - target: {fileID: 3155019754413520665, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     - target: {fileID: 3864527002134496728, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -132827,6 +132843,14 @@ PrefabInstance:
     - target: {fileID: 4161509701236132849, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065130647923480273, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1942789546}
+    - target: {fileID: 5065130647923480273, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -257606,6 +257630,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4929611780340128, guid: 52ad5c9c020a19c4bb74de3a99cf0974, type: 3}
   m_PrefabInstance: {fileID: 1938158850}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1942789546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3864527002134496728, guid: 1cf819ad14fdd35459d7adf5f459a34a, type: 3}
+  m_PrefabInstance: {fileID: 946943298}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2950e9082985644810d3f8ae60da64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
 --- !u!1001 &1943426758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279650,17 +279685,37 @@ MonoBehaviour:
     m_ActionId: c22d751e-0e88-4377-8ab0-d15c0ebb672d
     m_ActionName: 'WalkingOnLand/Jump[/Keyboard/space]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1942789546}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7f43d0e9-de47-497e-bbf4-1004134b9a80
     m_ActionName: 'WalkingOnLand/Pause[/Keyboard/escape]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1942789546}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 1dd674bd-fae2-4668-881c-3cfe9658713b
     m_ActionName: 'UI/Resume[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fd95bc7b-fe9c-49fd-8b2c-4bade6737f1c
-    m_ActionName: 'UI/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: WalkingOnLand
