@@ -2,8 +2,13 @@
     "posts":[
         {
             "filename": "roll-a-ball.md",
-            "title": "1. Roll a Ball project",
+            "title": "1. Roll a Ball project - Aleksander",
             "last_update": "2026-03-03T21:15:00.000Z"
+        },
+        {
+            "filename": "roll-a-ball-2.md",
+            "title": "1.5. Roll a Ball project - Karolina",
+            "last_update": "2026-03-03T21:16:00.000Z"
         },
         {
             "filename": "gdd.md",
