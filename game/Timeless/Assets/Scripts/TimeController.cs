@@ -6,6 +6,8 @@ public class TimeController : MonoBehaviour
 {
     [SerializeField]
     private int loopDuration = 20; // seconds
+    [SerializeField]
+    private AudioSource explosionAudioSource;
 
     private bool transitioning = false;
     private bool outroPlaying = false;
@@ -17,7 +19,7 @@ public class TimeController : MonoBehaviour
     {
         if (Time.timeSinceLevelLoad >= loopDuration - 5 && !outroPlaying){
             outroPlaying = true;
-            //HERE
+            explosionAudioSource.Play();
         }
 
         if (Time.timeSinceLevelLoad >= loopDuration && !transitioning)

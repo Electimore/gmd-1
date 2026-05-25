@@ -12,6 +12,8 @@ public class PetAnimal : MonoBehaviour, IInteractable
     public float wanderRadius;
     public float wanderWaitTime;
     public float followTimeAfterPet;
+    public AudioSource audioSource;
+    public AudioClip footstepClip;
 
     private bool isPlayerClose = false;
     private bool isBeingPetted = false;
@@ -139,6 +141,15 @@ public class PetAnimal : MonoBehaviour, IInteractable
         {
             isPlayerClose = false;
             Debug.Log("Player out of range of cat.");
+        }
+    }
+
+    public void PlayFootstep()
+    {
+        if (isBeingPetted) return; // no walking when petted
+        if (agent.velocity.magnitude > 0.1f) // only if moving
+        {
+            audioSource.PlayOneShot(footstepClip);
         }
     }
 }
