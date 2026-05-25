@@ -68,5 +68,16 @@ public class FirstPersonPlayer : MonoBehaviour
         Vector3 targetVelocity = transform.TransformDirection(movementDirection) * speed;
         targetVelocity.y = rb.linearVelocity.y;
         rb.linearVelocity = targetVelocity;
+
+        if (stickLookDircetion != Vector2.zero) {
+            // multiplied by Time.deltaTime for smooth rotation and stickRotationSpeed for some speed
+            float deltaX = stickLookDircetion.x * xSensitivity * Time.deltaTime * stickRotationSpeed;
+            transform.Rotate(0f, deltaX, 0f);
+
+            float deltaY = stickLookDircetion.y * ySensitivity * Time.deltaTime * stickRotationSpeed;
+            Vector3 newRotation = cameraTransform.rotation.eulerAngles + new Vector3(deltaY, 0f, 0f);
+            newRotation.x = (Math.Clamp((newRotation.x + 180) % 360, -88 + 180, 60 + 180) - 180) % 360;
+            cameraTransform.rotation = Quaternion.Euler(newRotation);
+        }
     }
 }

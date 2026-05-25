@@ -43,9 +43,18 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "7f43d0e9-de47-497e-bbf4-1004134b9a80",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "StickLook",
                     "type": "Value",
-                    "id": "024cf4db-2500-4824-bb41-581612a69faa",
+                    "id": "36134fc9-182c-4fb3-a970-5c0918462d5a",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -187,7 +196,7 @@
                 },
                 {
                     "name": "",
-                    "id": "e167739f-fa71-431f-96eb-de2179fa4d26",
+                    "id": "9449193b-c46c-45d9-80c8-2c5aada363a0",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -209,7 +218,7 @@
                 },
                 {
                     "name": "",
-                    "id": "bcf56b1e-be5e-4e4e-b96a-3a83e3f9635f",
+                    "id": "1991b171-dca1-4b22-9fbf-8be14bdb0b1e",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -220,12 +229,62 @@
                 },
                 {
                     "name": "",
-                    "id": "1d529034-7b04-4e49-8119-fce5243650c9",
+                    "id": "1b470880-9244-41d5-ad56-7988e02e77b6",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10fb814a-87e9-49df-8d8e-a94ec8349748",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ba877d1-ee88-4f9b-ba18-c76365bc57d1",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "StickLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "fd694ccd-f1b6-4aca-b23d-751f65abb0e8",
+            "actions": [
+                {
+                    "name": "Resume",
+                    "type": "Button",
+                    "id": "1dd674bd-fae2-4668-881c-3cfe9658713b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bc9a6b5c-6cbc-4873-823a-bdb9a537fc09",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Resume",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

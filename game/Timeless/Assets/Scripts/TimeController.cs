@@ -31,7 +31,7 @@ public class TimeController : MonoBehaviour
         if (Time.timeSinceLevelLoad - timeOffset >= currentTime + 1 && loopRunning)
         {
             currentTime += 1;
-            
+            Tick();
             Debug.Log(currentTime);
         }
 
