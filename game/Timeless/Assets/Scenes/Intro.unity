@@ -1367,7 +1367,7 @@ MonoBehaviour:
   disclaimerCanvas: {fileID: 1772717057}
   introCanvasGroup: {fileID: 1586143435}
   introAudioSource: {fileID: 847192474}
-  nextSceneName: Layout1
+  nextSceneName: Layout 1
   fadeSpeed: 1
 --- !u!4 &1692126519
 Transform:

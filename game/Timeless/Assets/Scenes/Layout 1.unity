@@ -32377,7 +32377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6509081659532663986, guid: 19f3f1dee56239d2a82054235a1432d6, type: 3}
       propertyPath: loopDuration
-      value: 30
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 6509081659532663986, guid: 19f3f1dee56239d2a82054235a1432d6, type: 3}
       propertyPath: explosionAudioSource
@@ -43657,7 +43657,7 @@ GameObject:
   - component: {fileID: 429854035}
   - component: {fileID: 429854034}
   m_Layer: 3
-  m_Name: Cube
+  m_Name: GameEnder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105076,7 +105076,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 776414165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429854034}
+        m_TargetAssemblyTypeName: EndScreenController, Assembly-CSharp
+        m_MethodName: LoadMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &776414165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181286,7 +181298,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 0.7
+  - 0.15
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
