@@ -37,5 +37,6 @@ https://electimore.github.io/gmd-1/demos/timeless-webgl-build/Timeless/index.htm
 - https://pixabay.com/sound-effects/musical-ambient-arp-65978/ - game ambient music
 - https://pixabay.com/sound-effects/film-special-effects-chorus-ambient-pad-524736/ - main menu audio
 - https://pixabay.com/illustrations/retro-background-the-consignment-4237850/ - menu background
+- https://dectalk.de/webspeak - For synthesizing the intro (using the Moonbase Alpha preset)
 
 (+ an amount of random pieces of YouTube tutorials. It is a bit dificult to pinpoint exact videos the fragments that ended up in use came from)
