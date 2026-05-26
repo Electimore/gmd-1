@@ -80,6 +80,11 @@ public class FirstPersonPlayer : MonoBehaviour
 
     void LateUpdate()
     {
+        if (Gamepad.all.Count > 1)
+        {
+            stickLookDircetion = Gamepad.all[1].leftStick.ReadValue();
+        }
+
         float totalDeltaX = 0f;
         float totalDeltaY = 0f;
 
