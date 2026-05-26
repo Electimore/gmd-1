@@ -16,3 +16,5 @@ Using a Prefab for the "Pick Up" objects and a Tag to identify them in code. Pre
 
 ### Extra
 The tutorial is a good baseline but it was missing some things. The ball would escape the plane after hitting a wall with enough speed. I fixed it by adding invisible walls - I duplicated all the normal walls, made them taller and turned off the mesh renderer while leaving the box colliders on.
+
+![A screenshot of the game](images/rollaball.png)
