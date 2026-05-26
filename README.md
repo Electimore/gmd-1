@@ -4,6 +4,11 @@ All of stuff for the GMD-1 class at VIA University College
 This repo contains our blog. It is fancy with a little reader for the markdown files, [hosted on GitHub pages](https://electimore.github.io/gmd-1/). 
 
 ---
+## YouTube video demonstration the game
+
+https://www.youtube.com/watch?v=N6s3iYHMy30
+
+---
 ## Asset sources
 - https://assetstore.unity.com/packages/3d/characters/animals/quirky-series-free-animals-pack-178235#content -animals
 - https://assetstore.unity.com/packages/3d/environments/sci-fi/free-lowpoly-scifi-110070 - environment pack
