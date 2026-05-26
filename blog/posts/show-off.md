@@ -5,7 +5,7 @@ For anyone just catching up, *Timeless* is a first-person puzzle and exploration
 
 ## Play It Here
 - [WebGL Build](https://electimore.github.io/gmd-1/demos/timeless-webgl-build/Timeless/index.html)
-- [Universal Windows Platform Build](https://electimore.github.io/gmd-1/builds/Timeless.zip)
+- [Universal Windows Platform Build](https://github.com/Electimore/gmd-1/blob/main/builds/uwp/Timeless.zip)
 - Linux Build (Coming Soon)
 
 If you're playing on a keyboard, it's the standard setup: WASD and mouse to move and look around, E to interact, Space to jump, and Escape to pause. We also hooked up full controller support (an Xbox controller works perfectly for testing), which was a strict requirement to make sure the game is compatible with the university's VIA arcade machine.
