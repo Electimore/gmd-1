@@ -9,6 +9,22 @@ This repo contains our blog. It is fancy with a little reader for the markdown f
 https://www.youtube.com/watch?v=N6s3iYHMy30
 
 ---
+## WebGL build
+
+https://electimore.github.io/gmd-1/demos/timeless-webgl-build/Timeless/index.html 
+
+---
+## Blog posts
+
+- [1. Roll a Ball project - Aleksander](https://electimore.github.io/gmd-1/#roll-a-ball.md) ([local](blog/posts/roll-a-ball.md))
+- [1.5. Roll a Ball project - Karolina](https://electimore.github.io/gmd-1/#roll-a-ball-2.md) ([local](blog/posts/roll-a-ball-2.md))
+- [2. Game Design Document](https://electimore.github.io/gmd-1/#gdd.md) ([local](blog/posts/gdd.md))
+- [3. Entry #3](https://electimore.github.io/gmd-1/#entry-3.md) ([local](blog/posts/entry-3.md))
+- [4. Entry #4](https://electimore.github.io/gmd-1/#entry-4.md) ([local](blog/posts/entry-4.md))
+- [5. Entry #5](https://electimore.github.io/gmd-1/#entry-5.md) ([local](blog/posts/entry-5.md))
+- [6. Show-off](https://electimore.github.io/gmd-1/#show-off.md) ([local](blog/posts/show-off.md))
+
+---
 ## Asset sources
 - https://assetstore.unity.com/packages/3d/characters/animals/quirky-series-free-animals-pack-178235#content -animals
 - https://assetstore.unity.com/packages/3d/environments/sci-fi/free-lowpoly-scifi-110070 - environment pack
