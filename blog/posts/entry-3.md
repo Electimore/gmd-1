@@ -1,29 +1,21 @@
 # Timeless — Dev Update #1
 
 ## Intro
-- goal for this milestone: have a playable first-person prototype in the scene
+The goal for was to get a playable first-person prototype running in the scene, something we could move through, look around, and jump in, even if the map was mostly empty.
 
 ## Set Up
-- Deciding on the new Input System (`InputAction` callbacks) over the legacy one — mention it's needed for controller support (VIA Arcade Machine)
-- Third-party packages installed: QuickOutline, TextMesh Pro
-- Scene structure plan: MainMenu, Intro, main game scene
+The first thing we made was set up input system. Since the game needs to run on the VIA Arcade Machine, which requires controller support, the new Input System was the way to go. We also installed two third-party packages: TextMesh Pro for text rendering and QuickOutline for highlighting interactable objects. We planned the scene structure as three scenes: MainMenu, Intro, a main game scene and maybe some outro if we had enough time left.
 
 ## First-Person Controller
-- Overview of `FirstPersonPlayer.cs`
-- Physics-based movement: writing velocity directly to `Rigidbody.linearVelocity` instead of using `AddForce` — explain why (snappier, more predictable feel for a walking sim)
-- Jumping with a ground check (`isGrounded` flag + `OnCollisionEnter`)
-- Supporting mouse/keyboard AND controller simultaneously (two separate look handlers: `OnMouseX`/`OnMouseY` for mouse, `OnStickLook` + `FixedUpdate` for the right stick)
+We implemented the first-person controller in FirstPersonPlayer.cs. Movement input is read as a Vector2 from the OnMovement callback and converted to a world-space direction with transform.TransformDirection. Rather than applying force with Rigidbody.AddForce, we write the result directly to rb.linearVelocity, preserving the y-component from the existing velocity so gravity is not cancelled mid-air. Writing velocity directly makes the player start and stop immediately in response to input, which is the right feel for a walking simulator where predictable movement matters more than physical momentum. We handle jumping in the OnJump callback, which calls rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse) and sets isGrounded to false. OnCollisionEnter resets isGrounded to true when the player lands on anything tagged "Ground".
+
+We split camera look into two code paths because mouse and stick input behave differently by nature. Mouse input arrives as a per-event delta, so OnMouseX and OnMouseY are callback-driven and only fire when the mouse moves. The right stick holds a continuous axis value, so OnStickLook stores the current direction and we apply the actual rotation every FixedUpdate, multiplied by Time.deltaTime and stickRotationSpeed to keep it smooth and frame-rate independent.
 
 ## Camera Pitch Clamping
-- The problem: Unity stores Euler angles in the 0–360 range, so naively clamping the X rotation breaks at the 0/360 seam (camera snaps or locks up)
-- The fix: shift the angle by +180, clamp, shift back — walk through the logic briefly
+Clamping the camera's vertical pitch introduced a specific problem. Unity's eulerAngles always returns values in the 0–360 range, so a camera tilted slightly upward might have an X angle of 350 rather than −10. A naive Clamp on that value immediately snaps the camera to the upper limit on the first frame. We fixed it by shifting the angle by +180 before clamping, then subtracting 180 afterward: (Math.Clamp((newRotation.x + 180) % 360, 92, 240) - 180) % 360. This moves the 0/360 wrap point well outside the valid pitch range so the clamp never sees the discontinuity.
 
 ## Assets
-- Importing asset packs: Low-poly Sci-Fi Pack, LOWPOLY Spaceship, Cosmos SkyDome
-- Setting up the skybox to give the alien-planet atmosphere
-- Early scene layout — placing geometry to match the museum concept from the GDD
-- First impressions of the visual direction
+We imported three asset packs to populate the scene: the Free LowPoly SciFi Pack, the LOWPOLY Spaceship pack, and the Cosmos SkyDome. We assigned the SkyDome as the scene skybox to set the alien-planet atmosphere described in the GDD. We also placed some initial geometry to approximate the museum layout from the game design document, giving the space a rough sense of the intended scale and structure. The low-poly sci-fi direction already matches the concept well at this stage.
 
 ## State of Game
-- What works: the player moves, looks around, jumps, and the world looks vaguely like the concept
-- Goal for the next milestone: make the world actually respond to the player
+At the end of this milestone, we have a player that can move, look around, and jump, and a scene with a visual direction that matches the concept.
